@@ -6,27 +6,28 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 13:07:00 by eburnet           #+#    #+#             */
-/*   Updated: 2024/11/29 17:03:21 by eburnet          ###   ########.fr       */
+/*   Updated: 2024/11/30 16:02:10 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phone_book.class.hpp"
 #include "contact.class.hpp"
 #include <iostream>
+#include <stdlib.h>
 
-int	ft_oldest(PhoneBook *phonebook)
+int	PhoneBook::ft_oldest(void)
 {
 	int	i = 0;
 	int	oldest;
 	
-	oldest = phonebook->contact[i].creation_nbr;
+	oldest = this->contact[i].creation_nbr;
 	while (i < 8)
 	{
-		if (phonebook->contact[i].creation_nbr < oldest)
-			oldest = phonebook->contact[i].creation_nbr;
+		if (this->contact[i].creation_nbr < oldest)
+			oldest = this->contact[i].creation_nbr;
 		i++;
 	}
-	return (phonebook->contact[oldest].index);
+	return (this->contact[oldest].index);
 }
 
 std::string	ft_get(std::string msg)
@@ -35,35 +36,65 @@ std::string	ft_get(std::string msg)
 
 	while (tmp.empty())
 	{
-		std::cout << msg;
+		std::cout << msg << std::endl;
 		std::getline(std::cin, tmp);
+		if(!std::cin)
+			exit(1);
 	}
 	return(tmp);
 }
 
-void	ft_add(PhoneBook *phonebook)
+void	PhoneBook::ft_add(void)
 {
 	static int	i;
 	int			oldest;
 
 
 	if(i > 7)
-		oldest = ft_oldest(phonebook);
+		oldest = this->ft_oldest();
 	else
 		oldest = i;
-	phonebook->contact[oldest].index = oldest;
-	phonebook->contact[oldest].creation_nbr = i;
-	phonebook->contact[oldest].name = ft_get("Name: ");
-	phonebook->contact[oldest].last_name = ft_get("Last Name: ");
-	phonebook->contact[oldest].nickname = ft_get("NickName: ");
-	phonebook->contact[oldest].phone_nbr = ft_get("Phone number: ");
-	phonebook->contact[oldest].darkest_secret = ft_get("Darkest Secret: ");
+	this->contact[oldest].index = oldest;
+	this->contact[oldest].creation_nbr = i;
+	this->contact[oldest].name = ft_get("Name: ");
+	this->contact[oldest].last_name = ft_get("Last Name: ");
+	this->contact[oldest].nickname = ft_get("NickName: ");
+	this->contact[oldest].phone_nbr = ft_get("Phone number: ");
+	this->contact[oldest].darkest_secret = ft_get("Darkest Secret: ");
 	i++;
 	return ;
 }
 
-void	ft_search(PhoneBook *phonebook)
+int	PhoneBook::ft_nb_contact(void)
 {
+	int	i = 0;
+
+	while (this->contact[i].name.empty() == false)
+		i++;
+	return (i);
+}
+
+void	PhoneBook::ft_search(void)
+{
+	int	i = 0;
+	int	nb_contact;
+
+	nb_contact = ft_nb_contact();
+	if (nb_contact == 0)
+	{
+		std::cout << "ADD a contact first" << std::endl;
+		return ;
+	}
+	std::cout << "index |" << " first name |" << " last name |" << " nickname" << std::endl;
+	while (i < nb_contact)
+	{
+		std::cout << this->contact[i].index << " | ";
+		std::cout << this->contact[i].name << " | ";
+		std::cout << this->contact[i].last_name << " | ";
+		std::cout << this->contact[i].nickname << std::endl;
+		i++;
+	}
+	
 	return ;
 }
 
@@ -81,14 +112,16 @@ int	main(void)
 			start = 0;
 		}
 		std::getline(std::cin, cmd);
+		if(!std::cin)
+			exit(1);
 		if (cmd.compare("ADD") == 0)
 		{
-			ft_add(&phonebook);
+			phonebook.ft_add();
 			start = 1;
 		}
 		else if (cmd.compare("SEARCH") == 0)
 		{
-			ft_search(&phonebook);
+			phonebook.ft_search();
 			start = 1;
 		}
 		else if (cmd.compare("EXIT") == 0)
