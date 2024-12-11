@@ -6,7 +6,7 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:13:08 by eburnet           #+#    #+#             */
-/*   Updated: 2024/11/30 16:00:51 by eburnet          ###   ########.fr       */
+/*   Updated: 2024/12/11 17:11:58 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@ class	PhoneBook
 {
 	private:
 		Contact contact[8];
+		int		_nb_contact;
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void	PhoneBook::ft_add(void);
-		void	PhoneBook::ft_search(void);
-		int		PhoneBook::ft_oldest(void);
-		int		PhoneBook::ft_nb_contact(void);
-
-
+		int		ft_add(void);
+		int		ft_search(void);
+		int		ft_nb_contact(void);
+		void	ft_print_tab(std::string var, int index, int last);
+		int		ft_print_contact(void);
+		int		get_nb_contact(void);
+		void	set_nb_contact(int nb_contact);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:14:09 by eburnet           #+#    #+#             */
-/*   Updated: 2024/11/30 16:12:25 by eburnet          ###   ########.fr       */
+/*   Updated: 2024/12/10 11:16:16 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,20 @@ class Contact
 	public:
 		Contact();
 		~Contact();
-		void Contact::setIndex(int	index);
-		int Contact::getIndex();
-		void Contact::setCreationNbr(int	creation_nbr);
-		int Contact::getCreationNbr();
-		int Contact::getName();
-		void Contact::setName(std::string	name);
+		void setIndex(int	index);
+		int getIndex();
+		void setCreationNbr(int	creation_nbr);
+		int getCreationNbr();
+		void setName(std::string	name);
+		std::string getName();
+		void setLastName(std::string	last_name);
+		std::string getLastName();
+		void setNickName(std::string	nickname);
+		std::string getNickName();
+		void setPhoneNbr(std::string	phone_nbr);
+		std::string getPhoneNbr();
+		void setDarkestSecret(std::string	darkest_secret);
+		std::string getDarkestSecret();
 };
 
 #endif
