@@ -6,7 +6,7 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:44:12 by eburnet           #+#    #+#             */
-/*   Updated: 2024/12/11 14:14:24 by eburnet          ###   ########.fr       */
+/*   Updated: 2024/12/14 12:33:53 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
 PhoneBook::PhoneBook(void)
 {
 	_nb_contact = 0;
-	//std::cout << "PhoneBook constructor" << std::endl;
 	return ;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	//std::cout << "PhoneBook destructor" << std::endl;
 	return ;
 }
 

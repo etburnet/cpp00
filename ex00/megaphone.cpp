@@ -6,7 +6,7 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:41:32 by eburnet           #+#    #+#             */
-/*   Updated: 2024/11/26 17:47:17 by eburnet          ###   ########.fr       */
+/*   Updated: 2024/12/14 12:33:32 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@ int	main(int argc, char *argv[])
 {
 	int	i = 1;
 	int	j;
+	std::string s;
 	
 	if (argc > 1)
 	{
 		while (i < argc)
 		{
 			j = 0;
-			while (argv[i][j])
+			s = argv[i];
+			while (s[j])
 			{
-				argv[i][j] = std::toupper(argv[i][j]);
+				s[j] = std::toupper(s[j]);
 				j++;
 			}
-			std::cout << argv[i];
+			std::cout << s;
 			i++;
 		}
 		std::cout << std::endl;

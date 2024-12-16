@@ -6,7 +6,7 @@
 /*   By: eburnet <eburnet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 13:07:00 by eburnet           #+#    #+#             */
-/*   Updated: 2024/12/11 17:33:22 by eburnet          ###   ########.fr       */
+/*   Updated: 2024/12/14 12:34:08 by eburnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ int	PhoneBook::ft_print_contact()
 	std::cout << "Last Name: ";
 	std::cout << this->contact[i].getLastName() << std::endl;
 	std::cout << "Nickname: ";
-	std::cout << this->contact[i].getLastName() << std::endl;
+	std::cout << this->contact[i].getNickName() << std::endl;
 	std::cout << "Phone number: ";
 	std::cout << this->contact[i].getPhoneNbr() << std::endl;
 	std::cout << "Darkest Secret: ";
